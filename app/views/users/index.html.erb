@@ -8,7 +8,11 @@
   <% @users.each do |user| %>
     <tr>
       <ul>Nickname: <%= user.nickname %></ul>
-      <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true) %></ul>
+      <% if user.image != '' %>
+        <ul><%= image_tag user.image %></ul>
+      <% else %>
+        <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true) %></ul>
+      <% end %>
       <ul>Full Name: <%= user.name %></ul>
       <ul>Email: <%= user.email %></ul>
     </tr>

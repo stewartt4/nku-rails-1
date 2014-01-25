@@ -11,6 +11,9 @@ gem 'sqlite3'
 # Use image from Gravatar
 gem 'gravtastic'
 
+# Use carrierwave to upload images
+gem 'carrierwave'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

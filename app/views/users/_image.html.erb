@@ -1,0 +1,5 @@
+<% if @user.image %>
+  <p><%= image_tag @user.image %></p>
+<% else %>
+  <p><%= image_tag @user.gravatar_url(:rating => 'PG', :secure => true) %></p>
+<% end %>
