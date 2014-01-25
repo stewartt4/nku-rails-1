@@ -33,4 +33,9 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+  
+  private
+    def post_params
+      params.require(:user).permit(:name, :email)
+    end
 end
