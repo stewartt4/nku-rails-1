@@ -1,10 +1,14 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
+
 <h1>Bueller</h1>
 <%= link_to 'New User', new_user_path %>
 <table>
   <% @users.each do |user| %>
     <tr>
       <ul>Nickname: <%= user.nickname %></ul>
-      <ul><%= user.image %></ul>
+      <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true) %></ul>
       <ul>Full Name: <%= user.name %></ul>
       <ul>Email: <%= user.email %></ul>
     </tr>

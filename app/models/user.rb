@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
   include Gravtastic
-  gravtastic
+  gravtastic :default => :identicon
 end
