@@ -2,11 +2,13 @@
 <%= link_to 'New User', new_user_path %><br>
 <table>
   <% @users.each do |user| %>
-  <tr><%= user.image %></tr><br>
-  <tr><%= user.nickname %></tr><br>
-  <tr><%= user.name %></tr><br>
-  <tr><%= user.email %></tr>
-  <td><%= link_to 'Show User', user %></td>
-  <td><%= link_to 'Edit User', edit_user_path(user) %></td>
+    <tr>Nickname: <%= user.nickname %></tr><br>
+    <tr><%= user.image %></tr><br>
+    <tr>Full Name: <%= user.name %></tr><br>
+    <tr>Email: <%= user.email %></tr><br>
+    <tr><%= link_to 'Show User ', user %></tr><br>
+    <tr><%= link_to 'Edit User ', edit_user_path(user) %></tr><br>
+    <tr><%= link_to 'Get Out of here', user_path(user), method: :delete,
+      data: { confirm: 'Are you sure?' }%></tr><br>
   <% end %>
 </table>

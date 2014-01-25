@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image))
     if @user.save
-      redirect_to @user, notice: "User successfully created!"
+      flash[:notice] = "User created Successfully!."
+      redirect_to users_path
     else
       render 'new'
     end
@@ -32,6 +33,13 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+ 
+    redirect_to root_path
   end
   
   private
