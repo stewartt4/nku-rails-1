@@ -1,0 +1,12 @@
+<h1>Bueller</h1>
+<%= link_to 'New User', new_user_path %>
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Show User', user %></td>
+      <td><%= link_to 'Edit User', edit_user_path %></td>
+    </tr>
+  <% end %>
+</table>
