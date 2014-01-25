@@ -4,7 +4,7 @@ class UserController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:post].permit(:name, :email))
+    @user = User.new(params[:user].permit(:name, :email))
     if @user.save
       redirect_to @user, notice: "User successfully created!"
     else
@@ -19,7 +19,7 @@ class UserController < ApplicationController
   def update
     @user = User.find(params[:id])
  
-    if @user.update(params[:post].permit(:name, :email))
+    if @user.update(params[:user].permit(:name, :email))
       redirect_to @user
     else
       render 'edit'
