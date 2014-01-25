@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image))
     if @user.save
-      flash[:notice] = "User created Successfully!."
       redirect_to users_path
+      flash[:notice] = "User created Successfully!."
     else
       render 'new'
     end

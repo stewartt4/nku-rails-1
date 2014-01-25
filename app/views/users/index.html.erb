@@ -1,14 +1,15 @@
 <h1>Bueller</h1>
-<%= link_to 'New User', new_user_path %><br>
+<%= link_to 'New User', new_user_path %>
 <table>
   <% @users.each do |user| %>
-    <tr>Nickname: <%= user.nickname %></tr><br>
-    <tr><%= user.image %></tr><br>
-    <tr>Full Name: <%= user.name %></tr><br>
-    <tr>Email: <%= user.email %></tr><br>
-    <tr><%= link_to 'Show User ', user %></tr><br>
-    <tr><%= link_to 'Edit User ', edit_user_path(user) %></tr><br>
-    <tr><%= link_to 'Get Out of here', user_path(user), method: :delete,
-      data: { confirm: 'Are you sure?' }%></tr><br>
+    <tr>
+      <ul>Nickname: <%= user.nickname %></ul>
+      <ul><%= user.image %></ul>
+      <ul>Full Name: <%= user.name %></ul>
+      <ul>Email: <%= user.email %></ul>
+    </tr>
+    <%= link_to 'Show User ', user %>
+    <%= link_to 'Edit User ', edit_user_path(user) %>
+    <%= link_to 'Get Out of here ', user_path(user), method: :delete %>
   <% end %>
 </table>
