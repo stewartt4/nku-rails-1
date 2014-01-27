@@ -1,11 +1,11 @@
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
-<% end %>
-
 <%= render 'header' %>
 
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: 'name' %>
+<% end %>
+
+<div id='box'>A whopping <%= @users.count%> users are signed up!</div>
 <div class="main">
-  <h3>A whopping <%= @users.count%> users are signed up!</h3>
   <table>
     <% @users.each do |user| %>
       <tr>
