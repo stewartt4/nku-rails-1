@@ -1,21 +1,31 @@
-<p>
-  <strong>Nickname:<strong>
-  <%= @user.nickname %>
-</p>
+<%= render 'header'%>
+<div class='align'>
+  <tr>
+    <ul>
+      <strong>Nickname:<strong>
+      <%= @user.nickname %>
+    </ul>
 
-<p>
-  <%= @user.image %>
-</p>
+    <ul class='align'>
+      <%= render 'image' %>
+    </ul>
+    
+    <ul>
+      <%= @user.image %>
+    </ul>
 
-<p>
-  <strong>Name:<strong>
-  <%= @user.name %>
-</p>
+    <ul>
+      <strong>Name:<strong>
+      <%= @user.name %>
+    </ul>
     
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-    
-<%= link_to 'Back', users_path %>
-| <%= link_to 'Edit', edit_user_path(@user) %>
+    <ul>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </ul> 
+    <ul>
+      <%= link_to 'Back', users_path %>
+      | <%= link_to 'Edit', edit_user_path(@user) %>
+    </ul>
+  </tr>
+</div>

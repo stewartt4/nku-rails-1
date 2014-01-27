@@ -34,13 +34,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
- 
-    redirect_to root_path
-  end
+  # Used for testing
   
+  #def destroy
+  #  @user = User.find(params[:id])
+  #  @user.destroy
+ 
+  #  redirect_to root_path
+  #end
+    
   def upload
     uploaded_io = params[:name][:image]
     File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|

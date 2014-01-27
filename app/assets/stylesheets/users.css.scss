@@ -1,14 +1,69 @@
 @import "bootstrap";
 
-table {
-  margin: 90px;
+/* Variables */
+$lightgray: #999;
+$mediumlightgray: #eaeaea;
+
+html {
+  text-align:center;
+}
+
+h1 {
+ font-size:5em; 
 }
 
 h2 {
   float: right;
-  margin-right: 90px;
+  margin-top: -45px;
 }
 
-.center { 
+.header { 
   text-align: center;
+  color:white;
+  margin-top:-25px;
+  margin-bottom:-10px;
+  background-image: image-url("download.jpeg");
+  -webkit-box-shadow: 1px 1px 1px 1px #3576BF;
+  box-shadow: 1px 1px 1px 1px #3576BF;
+}
+/*
+small {
+  font-size: 1.1em; line-height: 1.7em;
+  color:#000;
+}
+*/
+
+#logo {
+  color:white;
+  text-decoration:none;
+}
+  
+.img {
+  width:110px;
+  height:110px;
+}
+
+.nickname {
+   font-size: 2em; line-height: 1.7em;
+}
+
+.align {
+ padding-top:10px;
+ margin-left:-40px; 
+}
+
+.new-user-btn {
+ margin-top:-70px;
+ margin-right:10px;
+}
+
+.main {
+ margin-left:-30px;
+ -webkit-box-shadow: 1px 5px 9px 1px #EDF5F1;
+ box-shadow: 0px 0px 0px 0px #EDF5F1;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 5px 5px 9px 1px #3576BF;
+  box-shadow: 5px 5px 9px 1px #3576BF;
 }

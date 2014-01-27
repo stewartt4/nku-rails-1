@@ -11,26 +11,34 @@
   </div>
   <% end %>
   <p>
-    Full <%= f.label :name %>:
+    <small>
+      <strong>Full</strong> <%= f.label :name %>:
     <%= f.text_field :name %>
+    </small>
   </p>
 
   <p>
+    <small>
     <%= f.label :nickname %>:
     <%= f.text_field :nickname %>
+    </small>
   </p>
  
   <p>
+    <small>
     <%= f.label :email %>:
     <%= f.text_field :email %>
+    </small>
   </p>
 
   <p>
+    <small>
     <%= f.label :image %>:<br>
-    URL: <%= f.text_field :image %>
+      <strong>URL:</strong> <%= f.text_field :image %>
+    </small>
   </p>
  
   <p>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-large btn-primary' %>
   </p>
 <% end %>

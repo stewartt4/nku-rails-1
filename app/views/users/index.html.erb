@@ -2,22 +2,27 @@
   <%= content_tag :div, msg, class: name %>
 <% end %>
 
-<h1>Bueller</h1>
-<h2><%= link_to 'New User', new_user_path %></h2>
-<table>
-  <% @users.each do |user| %>
-    <tr>
-      <ul>Nickname: <%= user.nickname %></ul>
-      <% if user.image != '' %>
-        <ul><%= image_tag user.image %></ul>
-      <% else %>
-        <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true) %></ul>
-      <% end %>
-      <ul>Full Name: <%= user.name %></ul>
-      <ul>Email: <%= user.email %></ul>
-    </tr>
-    <%= link_to 'Show User ', user %>
-    <%= link_to 'Edit User ', edit_user_path(user) %>
-    <%= link_to 'Get Out of here ', user_path(user), method: :delete %>
-  <% end %>
+<%= render 'header' %>
+
+<div class="main">
+  <h3>A whopping <%= @users.count%> users are signed up!</h3>
+  <table>
+    <% @users.each do |user| %>
+      <tr>
+        <ul class='nickname'>Nickname: <%= user.nickname %></ul>
+        <% if user.image != '' %>
+          <ul><%= image_tag user.image, class: 'img' %></ul>
+        <% else %>
+          <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true), class: 'img' %></ul>
+        <% end %>
+        <ul>Full Name: <%= link_to user.name, user %></ul>
+        <ul>Email: <%= user.email %></ul>
+      </tr>
+      <tr>
+        <ul>
+          <%= link_to 'Edit User ', edit_user_path(user)%>
+        </ul>
+      </tr>
+    <% end %>
 </table>
+</div>

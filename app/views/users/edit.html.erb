@@ -1,9 +1,8 @@
-<% if @user.image != '' %>
-  <ul><%= image_tag @user.image %></ul>
-<% else %>
-  <ul><%= image_tag @user.gravatar_url(:rating => 'PG', :secure => true) %></ul>
-<% end %>
-<h1>Edit User</h1>
-<%= render 'form' %>
- 
-<%= link_to 'Back', users_path %>
+<%= render 'header' %>
+<div class='align'>
+  <%= render 'image' %>
+</div> 
+
+  <h1>Edit User</h1>
+  <%= render 'form' %>
+  <%= link_to 'Back', users_path %>
