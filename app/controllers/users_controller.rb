@@ -4,12 +4,10 @@ class UsersController < ApplicationController
   end
   
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to admin_root_path, :notice => "Welcome back, #{user.email}"
+    @user = User.new(params[:user].permit(:name, :nickname, :email, :image, :password, :password_confirmation))
+    if @user.save
+      redirect_to users_path, notice: "User successfully created!"
     else
-      flash.now.alert = "Invalid email or password"
       render 'new'
     end
   end
@@ -46,15 +44,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
-  # Used for testing
-  
-  #def destroy
-  #  @user = User.find(params[:id])
-  #  @user.destroy
- 
-  #  redirect_to root_path
-  #end
     
   def upload
     uploaded_io = params[:name][:image]

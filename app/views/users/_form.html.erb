@@ -8,6 +8,8 @@
     </ul>
   </div>
   <% end %>
+<div class="row">
+<div class="span6 offset3">
   <p>
     <small>
       <strong>Full</strong> <%= f.label :name %>:
@@ -32,11 +34,27 @@
   <p>
     <small>
     <%= f.label :image %>:<br>
-      <strong>URL:</strong> <%= f.text_field :image %>
+      <%= f.text_field :image %>
     </small>
   </p>
+
+  <p>
+    <small>
+      <%= f.label :password %>:<br>
+      <%= f.text_field :password %>
+    </small>
+  </p>
+
+  <p>
+    <small>
+      <%= f.label :password_confirmation %>:<br>
+      <%= f.text_field :password_confirmation %>
+    </small>
+  </p>  
  
   <p>
     <%= f.submit class: 'btn btn-large btn-primary' %>
   </p>
+  </div>
+</div>
 <% end %>

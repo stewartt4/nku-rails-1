@@ -83,3 +83,11 @@ small {
   font-size:0.2em;
   text-align:center;
 }
+
+/* forms */
+input, textarea, select, .form { 
+  border: 1px solid #bbb; width: 90%; margin: 20px;
+  height: auto; 
+  margin-bottom: 15px; 
+  /*@include box-sizing;*/
+}
