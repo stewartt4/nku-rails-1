@@ -1,0 +1,8 @@
+/* forms */
+input, textarea, select, .form { 
+  border: 1px solid #bbb; 
+  width: 100%;
+  height: auto;  
+  text-align: center;
+  /*@include box-sizing;*/
+}
