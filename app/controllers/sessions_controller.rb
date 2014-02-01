@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, :notice => "Welcome back, #{user.email}"
     else
-      #flash.now.alert = "Invalid email or password"
       redirect_to new_session_path, :notice => "Invalid username or password"
   end
   end
