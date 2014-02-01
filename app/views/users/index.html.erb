@@ -1,7 +1,4 @@
 <%= render 'header' %>
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: 'alert alert-success' %>
-<% end %>
 
 <div id='box'>A whopping <%= @users.count%> users are signed up!</div>
 <div class="main">
