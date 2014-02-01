@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+      sign_in user
       redirect_to root_path, :notice => "Welcome back, #{user.email}"
     else
       redirect_to new_session_path, :notice => "Invalid username or password"
-  end
+    end
   end
   
   def destroy
