@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_secure_password
+  validates_presence_of :password, :on => :create
+  
   include Gravtastic
   gravtastic :default => :identicon
   
@@ -7,5 +10,6 @@ class User < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, format: { with: VALID_EMAIL }, 
   uniqueness: { case_sensitive: false }
+  
   validates :nickname, presence: true
 end
