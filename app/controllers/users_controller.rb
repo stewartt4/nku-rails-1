@@ -5,9 +5,6 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image, :password, :password_confirmation))
-    
-    if @user.d
-    
     if @user.save
       redirect_to users_path, notice: "User successfully created!"
     else

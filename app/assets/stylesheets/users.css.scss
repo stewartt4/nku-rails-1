@@ -12,7 +12,13 @@ h1 {
 }
 
 h2 {
-  float: right;
+  float: left;
+  padding-left:10px;
+  padding-top:-10px
+}
+
+h3 {
+  float: right; 
 }
 
 .header { 
