@@ -14,6 +14,9 @@ class UsersController < ApplicationController
   
   def edit
     @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to root_path, notice: "You do not have permissions to access that page."
+    end
   end
   
   def update
