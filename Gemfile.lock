@@ -42,6 +42,11 @@ GEM
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.3.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.3.0)
+      factory_girl (~> 4.3.0)
+      railties (>= 3.0.0)
     gravtastic (3.2.6)
     hike (1.2.3)
     i18n (0.6.9)
@@ -117,6 +122,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   carrierwave
+  factory_girl_rails
   gravtastic
   jquery-rails
   rails (= 4.0.2)

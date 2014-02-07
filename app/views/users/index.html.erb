@@ -16,9 +16,7 @@
       </tr>
       <tr>
         <% if current_user == user %>
-        <ul>
-          <%= link_to 'Edit User ', edit_user_path(user)%>
-        </ul>
+        <ul><%= link_to 'Edit User ', edit_user_path(user)%></ul>
         <% end %>
       </tr>
     <% end %>
