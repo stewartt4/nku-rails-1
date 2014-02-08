@@ -6,6 +6,7 @@
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: 'alert alert-success' %>
 <% end %>
+<h2 class='im-here-btn'><%= link_to "I'm Here!", '#', class: 'btn btn-large btn-primary' %></h2>
 <% if current_user != nil %>
   <p class='center'><%= current_user.name %> is currently signed in.</p>
 <% end %>
