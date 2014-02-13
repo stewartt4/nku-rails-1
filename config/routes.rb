@@ -7,9 +7,10 @@ NkuRails::Application.routes.draw do
   resources :sessions
   
   # For sessions controller
-  match '/signup', to: 'users#new', via: 'get'
-  match '/signin', to: 'sessions#new', via: 'get'
+  get '/signup' => 'users#new'
+  get 'signin' => 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: 'delete'
+  get '/attendance' => 'users#attendance'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

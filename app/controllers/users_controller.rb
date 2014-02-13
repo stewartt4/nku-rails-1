@@ -3,6 +3,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def attendance
+    @users = User.all
+    if current_user
+      current_user[:attendance] = true
+      current_user.save
+    else
+      redirect_to root_path, notice: "You need to be signed in to do that."
+    end
+  end
+  
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image, :password, :password_confirmation))
     if @user.save
@@ -35,13 +45,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-  end
-    
-  def upload
-    uploaded_io = params[:name][:image]
-    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
   end
   
   private

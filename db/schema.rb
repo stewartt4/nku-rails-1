@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140208002518) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "attendence"
+    t.boolean  "attendance"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
