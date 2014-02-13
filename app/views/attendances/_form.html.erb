@@ -1,0 +1,26 @@
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <ul><%= msg %></ul>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+<div class="row">
+<div class="span6 offset3">
+  <p>
+    <small>
+    <%= f.label :seat_num %>:
+    <%= f.text_field :seat_num %>
+    </small>
+  </p>
+  <p>
+    
+    <%= f.submit class: 'btn btn-large btn-primary' %>
+  </p>
+  </div>
+</div>
+<% end %>
