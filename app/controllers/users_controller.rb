@@ -3,16 +3,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def attendance
-    @users = User.all
-    if current_user
-      current_user[:attendance] = true
-      current_user.save
-    else
-      redirect_to root_path, notice: "You need to be signed in to do that."
-    end
-  end
-  
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image, :password, :password_confirmation))
     if @user.save
