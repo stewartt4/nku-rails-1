@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213045648) do
+ActiveRecord::Schema.define(version: 20140214142410) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140213045648) do
     t.boolean  "attendence"
     t.boolean  "attendance"
     t.integer  "seat_num"
+    t.date     "attended_on"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

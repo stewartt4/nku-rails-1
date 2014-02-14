@@ -5,7 +5,6 @@ NkuRails::Application.routes.draw do
   end
   resources :users
   resources :sessions
-  resources :attendances
   
   get '/signup' => 'users#new'
   get 'signin' => 'sessions#new'
