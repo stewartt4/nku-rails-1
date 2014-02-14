@@ -5,7 +5,9 @@
 <p>Student's present today:</p>
 <% @users.each do |user| %>
   <% if user[:attendance] == true %>
-      <%= user.name %><br>
+  <p><%= user.name %></p>
+<p>seat number: <%= user.seat_num %></p>
+  <p>Attended on: <%= user.attended_on %></p><br>
   <% end %>
 <% end %>
 
