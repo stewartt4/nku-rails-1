@@ -1,0 +1,17 @@
+<%= render 'header' %>
+
+<h1>Attendance</h1>
+
+<p>Student's present today:</p>
+<% @users.each do |user| %>
+  <% if user[:attendance] == true %>
+      <%= user.name %><br>
+  <% end %>
+<% end %>
+
+<p>Sudent's Absent today:</p>
+<% @users.each do |user| %>
+  <% if user[:attendance] != true %>
+      <%= user.name %><br>
+  <% end %>
+<% end %>

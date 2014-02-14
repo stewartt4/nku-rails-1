@@ -1,5 +1,8 @@
 <%= render 'header' %>
-<h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
+<% if current_user %>
+ <h3 class='attendance-btn'><%= link_to "Attendance", attendances_path, class: 'btn btn-large btn-primary' %></h3>
+ <h2 class='im-here-btn'><%= link_to "I'm Here!", seat_num_path, class: 'btn btn-large btn-primary' %></h2>
+<% end %>
 <div id='box'>A whopping <%= @users.count%> users are signed up!</div>
 <div class="main">
   <table>
