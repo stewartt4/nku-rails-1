@@ -19,14 +19,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def indexAttendances
-    @users = User.all
-  end
-  
-  def editAttendances
-  end
-  
-  
   def update
     @user = User.find(params[:id])
     current_user[:attendance] = true

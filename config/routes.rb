@@ -10,7 +10,6 @@ NkuRails::Application.routes.draw do
   get '/signup' => 'users#new'
   get 'signin' => 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-  get '/attendances' => 'attendances#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
