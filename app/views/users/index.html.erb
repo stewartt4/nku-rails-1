@@ -5,6 +5,54 @@
 <% end %>
 <div id='box'>A whopping <%= @users.count%> users are signed up!</div>
 <div class="main">
+  
+<table>
+  <tr>
+    <td class="tableBorder">
+      <% @users.each do |user| %>
+        <% if user.seat_num == 1 %>
+          <%= user.name %><br>
+        <% end %>
+      <% end %>
+    </td>
+    
+    <td class="tableBorder">
+      <% @users.each do |user| %>
+        <% if user.seat_num == 2 %>
+          <%= user.name %><br>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="tableBorder">
+      <% @users.each do |user| %>
+        <% if user.seat_num == 3 %>
+          <%= user.name %><br>
+        <% end %>
+      <% end %>
+    </td>
+    
+    <td class="tableBorder">
+      <% @users.each do |user| %>
+        <% if user.seat_num == 4 %>
+          <%= user.name %><br>
+        <% end %>
+      <% end %>
+    </td>
+  </tr>
+  
+  <tr>
+  <% @users.each do |user| %>
+    <% if !user.attendance %>
+      <%= user.name %><br>
+    <% end %>
+  <% end %>
+  </tr>
+</table>
+    
+    
   <table>
     <% @users.each do |user| %>
       <tr>
