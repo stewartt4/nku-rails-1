@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   uniqueness: { case_sensitive: false }
   
   validates :nickname, presence: true
-  validates :seat_num, presence: true, numericality: { only_integer: true, greater_than: 0, less_than: 5}
   private
   
     def create_remember_token

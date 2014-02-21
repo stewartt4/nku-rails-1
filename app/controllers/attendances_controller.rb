@@ -3,26 +3,20 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.new
   end
   
-  def edit
-    new
+  def create
+    @attendance = Attendance.new(params[:attendance].permit(:seat_num, :attended_on))
     @attendance.id = current_user.id
-    @attendance = Attendance.find(params[:id])
-    #if current_user != @attendance
-    #  redirect_to root_path, notice: "You do not have permissions to access that page."
-    #end
+    if @attendance.save
+      redirect_to attendances_path, notice: "Attendance successfully logged!"
+    else
+      render 'new'
+    end
   end
   
   def update
-    @attendance = User.find(params[:id])
+    @attendance = Attendance.find(params[:id])
     @attendance[:attendance] = true
     @attendance[:attended_on] = Time.now
-    #@attendance.save
-    #if @attendance.update(params[:attendance].permit(:seat_num, :attended_on))
-    #  sign_in(@attendance)
-    #  redirect_to attendances_path, notice: "Attendance Successfully logged!"
-    #else
-    #  render 'edit'
-    #end
     
     if (@attendance.attended_on >= @attendance.expire) or (@attendance == nil)
       @attendance.save
