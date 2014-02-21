@@ -32,14 +32,6 @@ class AttendancesController < ApplicationController
     @users = User.all
   end
   
-  def self.in_seat(seat, date)
-    User.joins(:attendances).where(attendances: {seat_num: seat, attended_on: date})
-  end
-
-  def self.absent(date)
-    User.joins(:attendances).where.not(attendances: {attended_on: date})
-  end
-  
   private
     def post_params
       params.require(:user).permit(:seat_num, :attended_on)

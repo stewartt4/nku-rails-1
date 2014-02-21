@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   uniqueness: { case_sensitive: false }
   
   validates :nickname, presence: true
+  validates :seat_num, presence: true
   
   private
   
