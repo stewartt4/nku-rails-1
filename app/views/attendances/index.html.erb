@@ -1,10 +1,10 @@
 <%= render 'header' %>
 
-<h1>Attendance</h1>
+<h1>Attendance:</h1>
 
 <p>Student's present today:</p>
 <% @users.each do |user| %>
-  <% if user[:attendance] == true %>
+  <% if user[:attended_on] != nil %>
   <p><%= user.name %></p>
 <p>seat number: <%= user.seat_num %></p>
   <p>Attended on: <%= user.attended_on %></p><br>
@@ -13,7 +13,7 @@
 
 <p>Sudent's Absent today:</p>
 <% @users.each do |user| %>
-  <% if user[:attendance] != true %>
-      <%= user.name %><br>
+  <% if user[:attended_on] == nil %>
+    <p><%= user.name %></p>
   <% end %>
 <% end %>
