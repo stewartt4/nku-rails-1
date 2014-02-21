@@ -21,9 +21,11 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
+    
     current_user[:attendance] = true
     current_user[:attended_on] = Time.now
     current_user.save
+    
     if @user.update(params[:user].permit(:name, :nickname, :email, :image, :seat_num, :attended_on))
       sign_in(@user)
       redirect_to root_path, notice: "User successfully changed!"
