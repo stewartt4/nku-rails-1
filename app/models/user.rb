@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :attendances
   before_save { |user| user.email = email.downcase } 
   before_save :create_remember_token
   validates_presence_of :password, :on => :create

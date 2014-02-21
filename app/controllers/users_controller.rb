@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
+    @attendances = Attendance.all
   end
   
   def self.in_seat(seat, date)

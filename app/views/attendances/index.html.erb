@@ -3,17 +3,17 @@
 <h1>Attendance:</h1>
 
 <p>Student's present today:</p>
-<% @users.each do |user| %>
-  <% if user[:attended_on] != nil %>
-  <p><%= user.name %></p>
-<p>seat number: <%= user.seat_num %></p>
-  <p>Attended on: <%= user.attended_on %></p><br>
+<% @attendances.each do |attendance| %>
+  <% if attendance.seat_num != nil %>
+  <p><%= attendance.student_name %></p>
+<p>seat number: <%= attendance.seat_num %></p>
+  <p>Attended on: <%= attendance.attended_on %></p><br>
   <% end %>
 <% end %>
 
 <p>Sudent's Absent today:</p>
-<% @users.each do |user| %>
-  <% if user[:attended_on] == nil %>
-    <p><%= user.name %></p>
+<% @attendances.each do |attendance| %>
+  <% if attendance.seat_num == nil %>
+    <p><%= attendance.student_name %></p>
   <% end %>
 <% end %>
