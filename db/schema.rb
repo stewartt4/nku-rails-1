@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221150110) do
+ActiveRecord::Schema.define(version: 20140221153252) do
 
   create_table "attendances", force: true do |t|
     t.date     "attended_on"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140221150110) do
     t.boolean  "attendance"
     t.integer  "seat_num"
     t.date     "attended_on"
+    t.date     "expire"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

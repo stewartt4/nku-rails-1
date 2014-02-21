@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     
     current_user[:attendance] = true
     current_user[:attended_on] = Time.now
+    current_user[:expire] = current_user[:attended_on] + 1.days
     current_user.save
     
     if @user.update(params[:user].permit(:name, :nickname, :email, :image, :seat_num, :attended_on))
