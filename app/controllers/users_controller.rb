@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user].permit(:name, :nickname, :email, :image, :password, :password_confirmation))
+    @user.seat_num = nil
     if @user.save
       redirect_to users_path, notice: "User successfully created!"
     else
@@ -21,11 +22,6 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    
-    current_user[:attendance] = true
-    current_user[:attended_on] = Time.now
-    current_user[:expire] = current_user[:attended_on] + 1.days
-    current_user.save
     
     if @user.update(params[:user].permit(:name, :nickname, :email, :image, :seat_num, :attended_on))
       sign_in(@user)

@@ -11,9 +11,9 @@
   <% end %>
 <% end %>
 
-<p>Sudent's Absent today:</p>
-<% @attendances.each do |attendance| %>
-  <% if attendance.seat_num == nil %>
-    <p><%= attendance.student_name %></p>
+<p>Student's Absent today:</p>
+<% @users.each do |user| %>
+  <% if user.seat_num == nil %>
+    <p><%= user.name %></p>
   <% end %>
 <% end %>

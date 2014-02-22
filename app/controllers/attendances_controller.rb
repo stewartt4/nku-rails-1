@@ -10,6 +10,7 @@ class AttendancesController < ApplicationController
     @attendance.attended_on = Date.today
     @attendance.expire = @attendance.attended_on + 1.days
     current_user.attended_on = @attendance.attended_on
+    current_user.seat_num = @attendance.seat_num
     current_user.save
     if @attendance.save
       redirect_to attendances_path, notice: "Attendance successfully logged!"
@@ -20,14 +21,6 @@ class AttendancesController < ApplicationController
   
   def edit
     @attendance = Attendance.find(params[:id])
-      #@attendance.student_name = current_user.name
-      #@attendance.attended_on = Date.today
-      #@attendance.expire = @attendance.attended_on + 1.days
-      #@attendance.save
-      #redirect_to attendances_path, notice: "Attendance successfully logged!"
-    #else
-    #  render 'edit'
-    #end
   end
   
    def update
@@ -47,6 +40,7 @@ class AttendancesController < ApplicationController
   
   def index
     @attendances = Attendance.all
+    @users = User.all
   end
   
   
