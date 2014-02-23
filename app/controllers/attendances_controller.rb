@@ -26,11 +26,11 @@ class AttendancesController < ApplicationController
    def update
      @attendance = Attendance.find(params[:id])
     
-     if @attendance.attended_on >= @attendance.expire
-       @attendance.attended_on = Time.now
+     if Date.today >= @attendance.expire
+       @attendance.attended_on = Date.today
        @attendance.expire = @attendance.attended_on + 1.days
     
-       if @attendance.update(params[:user].permit(:seat_num))
+       if @attendance.update(params[:attendance].permit(:seat_num))
          redirect_to attendances_path, notice: "Attendance successfully changed!"
        end
     else
