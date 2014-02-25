@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221220038) do
+ActiveRecord::Schema.define(version: 20140225153153) do
 
   create_table "attendances", force: true do |t|
     t.date     "attended_on"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140221220038) do
     t.datetime "updated_at"
     t.string   "student_name"
     t.date     "expire"
+    t.integer  "user_id"
   end
 
   create_table "comments", force: true do |t|

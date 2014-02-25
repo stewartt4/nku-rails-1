@@ -1,0 +1,5 @@
+<td class="tableBorder">
+  <% @users.in_seat(seat).each do |user| %>
+    <%= user.name %>
+  <% end %>
+</td>

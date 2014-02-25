@@ -2,18 +2,22 @@
 
 <h1>Attendance:</h1>
 
-<p>Student's present today:</p>
-<% @attendances.each do |attendance| %>
-  <% if attendance.seat_num != nil %>
-  <p><%= attendance.student_name %></p>
-<p>seat number: <%= attendance.seat_num %></p>
-  <p>Attended on: <%= attendance.attended_on %></p><br>
-  <% end %>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Attendance Date</th>
+      <th>Seat</th>
+    </tr>
+  </thead>
 
-<p>Student's Absent today:</p>
-<% @users.each do |user| %>
-  <% if user.seat_num == nil %>
-    <p><%= user.name %></p>
-  <% end %>
-<% end %>
+  <tbody>
+    <% @attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.user.name %></td>
+        <td><%= attendance.attended_on %></td>
+        <td><%= attendance.seat_num %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
