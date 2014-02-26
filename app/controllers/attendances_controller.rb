@@ -19,8 +19,12 @@ class AttendancesController < ApplicationController
   end
   
   def index
-    #@attendances = Attendance.all
-    @attendances = Attendance.search(params[:search])
+    q = params[:search]
+    if q.blank?
+      @attendances = Attendance.all
+    else
+      @attendances = Attendance.find(:all, :conditions => ["user_id LIKE ?",q])
+    end
   end
   
   

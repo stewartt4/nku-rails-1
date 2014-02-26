@@ -3,9 +3,8 @@
  <h3 class='attendance-btn'><%= link_to "Attendance", attendances_path, class: 'btn btn-large btn-primary' %></h3>
  <h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
 <% end %>
-<div id='box'>A whopping <%= @users.count%> users are signed up!</div>
 
-<%= form_tag attendances_path, :method => 'get' do %>
+<%= form_tag root_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search], type: "date" %>
     <%= submit_tag "Search", :name => nil %>
@@ -21,12 +20,12 @@
 <table>
   <tbody>
     <tr>
-      <%= render partial: 'seat', locals: {seat: 1} %>
-      <%= render partial: 'seat', locals: {seat: 2} %>
+      <%= render partial: 'seat', locals: {seat_num: 1} %>
+      <%= render partial: 'seat', locals: {seat_num: 2} %>
     </tr>
     <tr>
-      <%= render partial: 'seat', locals: {seat: 3} %>
-      <%= render partial: 'seat', locals: {seat: 4} %>
+      <%= render partial: 'seat', locals: {seat_num: 3} %>
+      <%= render partial: 'seat', locals: {seat_num: 4} %>
     </tr>
   </tbody>
 </table>
