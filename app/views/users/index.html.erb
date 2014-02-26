@@ -4,11 +4,19 @@
  <h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
 <% end %>
 <div id='box'>A whopping <%= @users.count%> users are signed up!</div>
+
+<%= form_tag attendances_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], type: "date" %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
 <div class="main">
   <div class="page-header">
   <h1>users</h1>
 </div>
-  
+
 <h2 class="center">Present</h2>
 <table>
   <tbody>

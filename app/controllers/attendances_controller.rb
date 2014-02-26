@@ -19,7 +19,8 @@ class AttendancesController < ApplicationController
   end
   
   def index
-    @attendances = Attendance.all
+    #@attendances = Attendance.all
+    @attendances = Attendance.search(params[:search])
   end
   
   
