@@ -4,11 +4,20 @@
  <h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
 <% end %>
 
-<%= form_tag root_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, @search = params[:search], type: "date" %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<% if params[:search] %>
+  <%= form_tag root_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, @search = params[:search], type: "date" %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+<% else %>
+  <%= form_tag root_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, @search = Date.today, type: "date" %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
 <% end %>
 
 <div class="main">
