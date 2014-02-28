@@ -17,19 +17,6 @@ class User < ActiveRecord::Base
   
   validates :nickname, presence: true
   
-  #def self.search(search)
-  #  if search
-      #joins(:attendances).where(:all, :conditions => ['attendances.attended_on LIKE ?', "%#{search}%"])
-      #joins(:attendances).where(attendances: {attended_on: ['attendances.attended_on LIKE ?', "%#{search}%"]})
-  #    present(search)#.where('attendances.attended_on LIKE ?', "%#{search}%")
-      #absent(search)
-      #@search = search.to_date
-      #debugger
-  #  else
-  #    present(Date.today)
-  #  end
-  #end
-  
   def self.in_seat(seat_num, now=Date.today)
     present(now).where('attendances.seat_num = ?', seat_num)
   end

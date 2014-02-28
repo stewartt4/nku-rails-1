@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @search = params[:search] || Date.today
   end
 
   private
