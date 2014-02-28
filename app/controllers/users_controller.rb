@@ -19,15 +19,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.all
+    @users = User.all
     #@users = User.search(params[:search])
-    scope = User.joins(:attendances)
+    #scope = User.joins(:attendances)
 
-    if (params[:search].present?)
-      scope = scope.where([ 'attended_on LIKE ?', "%#{params[:search]}%" ])
-    end
+    #if (params[:search].present?)
+    #  scope = scope.where([ 'attendances.attended_on LIKE ?', "%#{params[:search]}%" ])
+    #end
   
-    @users = scope.all
+    #@users = scope.load
   end
 
   private

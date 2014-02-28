@@ -6,7 +6,7 @@
 
 <%= form_tag root_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search], type: "date" %>
+    <%= text_field_tag :search, @search = params[:search], type: "date" %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
@@ -32,7 +32,7 @@
   
   <h2 class="center">Absent</h2>
   <table>
-    <% @users.absent.each do |user| %>
+    <% @users.absent(@search).each do |user| %>
       <tr>
         <ul class='nickname'>Nickname: <%= user.nickname %></ul>
         <% if user.image != '' %>
