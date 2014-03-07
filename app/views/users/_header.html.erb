@@ -6,7 +6,7 @@
   <% if current_user %>
     <h2><%= link_to "Edit your profile", edit_user_path(current_user), class: 'btn btn-large btn-primary'%></h2>
   <% end %>
-  <h2><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
+  <h3><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h3>
 </div>
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: 'alert alert-success' %>
