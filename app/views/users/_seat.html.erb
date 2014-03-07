@@ -1,5 +1,6 @@
 <td class="tableBorder">
   <% @users.in_seat(seat_num, @search).each do |user| %>
-    <%= user.name %>
+  <ul><%= user.nickname %></ul>
+  <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true), class: 'img' %></ul>
   <% end %>
 </td>
