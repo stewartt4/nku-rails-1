@@ -1,0 +1,26 @@
+<%= render 'header' %>
+
+<h1 class='center'>All Students:</h1>
+<div class='center'>
+  <% @users.absent(@search).each do |user| %>
+    <tr>
+      <ul class='nickname'>Nickname: <%= user.nickname %></ul>
+        <% if user.image != '' %>
+          <ul><%= image_tag user.image, class: 'img' %></ul>
+        <% else %>
+          <ul><%= image_tag user.gravatar_url(:rating => 'PG', :secure => true), class: 'img' %></ul>
+        <% end %>
+          <ul>Full Name: <%= link_to user.name, user %></ul>
+          <ul>Email: <%= user.email %></ul>
+    </tr>
+    <tr>
+      <% if current_user == user %>
+        <ul><%= link_to 'Edit User ', edit_user_path(user)%></ul>
+      <% end %>
+      </tr>
+  <% end %>
+
+  <% if current_user %>
+    <%= link_to "Sign out", signout_path, method: "delete" %>
+  <% end %>
+</div>

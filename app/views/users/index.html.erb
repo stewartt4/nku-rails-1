@@ -2,17 +2,15 @@
 
 <%= render 'piechart' %>
 
-<% if current_user %>
- <h3 class='attendance-btn'><%= link_to "Attendance", attendances_path, class: 'btn btn-large btn-primary' %></h3>
- <h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
+<h3 class='attendance-btn'><%= link_to "Attendance", attendances_path, class: 'btn btn-large btn-primary' %></h3>
+<h2 class='im-here-btn'><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h2>
+<h2 class='all-students'><%= link_to "All Students", all_users_path, class: 'btn btn-large btn-primary'%></h2>
+<%= form_tag root_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, @search, type: "date" %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
-
-  <%= form_tag root_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, @search, type: "date" %>
-      <%= submit_tag "Search", :name => nil %>
-    </p>
-  <% end %>
 
 <div id="piechart" style="width: 900px; height: 500px;"></div>
 

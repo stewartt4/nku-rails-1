@@ -7,6 +7,7 @@ NkuRails::Application.routes.draw do
   resources :sessions
   resources :attendances
 
+  get '/all_users' => 'users#all'
   get '/signup' => 'users#new'
   get 'signin' => 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: 'delete'

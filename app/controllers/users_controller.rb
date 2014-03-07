@@ -22,6 +22,10 @@ class UsersController < ApplicationController
     @users = User.all
     @search = params[:search] || Date.today
   end
+  
+  def all
+    @users = User.all
+  end
 
   private
 
