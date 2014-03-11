@@ -2,6 +2,7 @@ NkuRails::Application.routes.draw do
   resources :users
   resources :sessions
   resources :attendances
+  resources :assignments
 
   get '/all_users' => 'users#all'
   get '/signup' => 'users#new'

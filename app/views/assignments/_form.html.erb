@@ -1,0 +1,39 @@
+<%= form_for @assignment do |f| %>
+  <% if @assignment.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @assignment.errors.full_messages.each do |msg| %>
+      <ul><%= msg %></ul>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+<div class="row">
+<div class="span6 offset3">
+  <p>
+    <small>
+      <strong>Assignment</strong> <%= f.label :name %>:
+    <%= f.text_field :name %>
+    </small>
+  </p>
+
+  <p>
+    <small>
+    <%= f.label :score %>:
+    <%= f.text_field :score %>
+    </small>
+  </p>
+ 
+  <p>
+    <small>
+    <%= f.label :total %>:
+    <%= f.text_field :total %>
+    </small>
+  </p> 
+ 
+  <p>
+    <%= f.submit class: 'btn btn-large btn-primary' %>
+  </p>
+  </div>
+</div>
+<% end %>
