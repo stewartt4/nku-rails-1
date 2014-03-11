@@ -10,10 +10,18 @@
   <% end %>
 <div class="row">
 <div class="span6 offset3">
+
+  <p>
+    <small>
+      <%= f.label :student_id %>:
+      <%= collection_select(:assignment, :student_id, User.all, :id, :name) %>
+    </small>
+  </p>
+  
   <p>
     <small>
       <strong>Assignment</strong> <%= f.label :name %>:
-    <%= f.text_field :assignment_name %>
+      <%= f.text_field :assignment_name %>
     </small>
   </p>
 
