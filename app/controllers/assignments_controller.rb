@@ -4,7 +4,11 @@ class AssignmentsController < ApplicationController
   end
   
   def new
-    @assignment = Assignment.new
+    if current_user.admin == true
+      @assignment = Assignment.new
+    else
+      redirect_to root_path, notice: "Need to be admin"
+    end
   end
   
   def create
