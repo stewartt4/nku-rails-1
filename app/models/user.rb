@@ -30,6 +30,12 @@ class User < ActiveRecord::Base
     joins(:attendances).where(attendances: {attended_on: now})
   end
   
+  def self.admin?
+    if self.admin == true
+      true
+    end
+  end
+  
   private
   
     def create_remember_token

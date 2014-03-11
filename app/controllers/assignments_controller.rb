@@ -1,20 +1,25 @@
 class AssignmentsController < ApplicationController
   def index
-    @assignment = Assignment.all
+    if current_user.admin?
+      @assignments = Assignment.all
+      current_user.name = "All Student"
+    else
+      @assignments = current_user.assignments
+    end
   end
   
   def new
-    if current_user.admin == true
+    if current_user.admin?
       @assignment = Assignment.new
+      @assignment.student_id = current_user.id
     else
-      redirect_to root_path, notice: "Need to be admin"
+      redirect_to root_path, notice: "Unauthorized"
     end
   end
   
   def create
     @assignment = Assignment.create!(assignment_params)
-    #session[:user_id] = @user.id
-    redirect_to new_assignment_path, notice: "Assignment created!"
+    redirect_to root_path, notice: "Assignment created!"
   end
 
   def edit

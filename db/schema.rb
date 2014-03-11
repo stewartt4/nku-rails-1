@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311172444) do
+ActiveRecord::Schema.define(version: 20140311221058) do
 
   create_table "assignments", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140311172444) do
     t.decimal  "total"
     t.string   "assignment_name"
     t.integer  "student_id"
+    t.integer  "user_id"
   end
 
   create_table "attendances", force: true do |t|

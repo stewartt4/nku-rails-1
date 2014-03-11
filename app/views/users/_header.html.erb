@@ -10,10 +10,8 @@
   <h3><%= link_to "Create New Assignment", new_assignment_path, class: 'btn btn-large btn-primary'%></h3>
   <% end %>
   <h3><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h3>
+  <h3><%= link_to "My Assignments", assignments_path, class: 'btn btn-large btn-primary'%></h3>
 </div>
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: 'alert alert-success' %>
-<% end %>
-<% if current_user != nil %>
-  <p class='center'><%= current_user.name %> is currently signed in.</p>
 <% end %>

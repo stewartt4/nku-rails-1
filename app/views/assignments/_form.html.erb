@@ -16,7 +16,7 @@
     <div class="form">
 
       <%= f.label :student_id %>:
-      <%= collection_select(:assignment, :student_id, User.all, :id, :name) %>
+      <%= collection_select(:assignment, :user_id, User.all, :id, :name) %>
     
       <%= f.label :assignment_name %>:
       <%= f.text_field :assignment_name %>

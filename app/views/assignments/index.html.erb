@@ -1,0 +1,27 @@
+<%= render 'header' %>
+
+<h1><%= current_user.name %>'s Grades</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Total</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @assignments.each do |assignment| %>
+      <tr>
+        <td><%= assignment.assignment_name %>
+        <td><%= assignment.score %></td>
+        <td><%= assignment.total %></td>
+        <td><%= assignment.percentage%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if not current_user.admin? %>
+  <p>Current Grade: <%= current_user.assignments.average_percentage %></p>
+<% end %>
