@@ -114,8 +114,9 @@ small {
 
 /* forms */
 input, textarea, select, .form { 
-  border: 1px solid #bbb; width: 90%; margin: 20px;
-  height: auto; 
-  margin-bottom: 15px; 
+  border: 1px solid #bbb; 
+  width: 97%; 
+  margin: 20px;
+  height: auto;  
   /*@include box-sizing;*/
 }
