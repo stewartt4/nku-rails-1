@@ -13,4 +13,12 @@ class Assignment < ActiveRecord::Base
     (sum_score / sum_total.to_f * 100).round
   end
   
+  #def self.search(search)
+  #  if search
+  #    find(:all, :conditions => ['assignment_name LIKE ?', "%#{search}%"])
+  #  else
+  #    find(:all)
+  #  end
+  #end
+  
 end

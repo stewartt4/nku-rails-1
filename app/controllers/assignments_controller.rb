@@ -1,8 +1,13 @@
 class AssignmentsController < ApplicationController
   def index
+    q = params[:search]
     if current_user.admin?
-      @assignments = Assignment.all
       current_user.name = "All Student"
+      if q.blank?
+        @assignments = Assignment.all
+      else
+        @assignments = Assignment.find(:all, :conditions => ["user_id LIKE ?",q])
+      end
     else
       @assignments = current_user.assignments
     end

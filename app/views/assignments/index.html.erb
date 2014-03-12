@@ -14,7 +14,7 @@
   <tbody>
     <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= assignment.assignment_name %>
+        <td><%= link_to assignment.assignment_name, assignments_path(:search => assignment.user_id) %></td>
         <td><%= assignment.score %></td>
         <td><%= assignment.total %></td>
         <td><%= assignment.percentage%></td>
