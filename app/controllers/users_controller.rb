@@ -27,6 +27,11 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def upload
+    UserUploader.new(params[:file])
+    redirect_to root_path
+  end
+
   private
 
   def user_params
