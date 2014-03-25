@@ -12,7 +12,15 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user != nil
   end
-  
+
+  def authorize
+    unless current_user.admin?
+      flash[:error] = "Unauthorized access"
+      redirect_to root_path
+      false
+    end
+  end
+
   before_action :require_login
   
   skip_before_action :require_login, only: [:new, :create]
