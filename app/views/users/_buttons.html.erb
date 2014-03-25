@@ -1,0 +1,12 @@
+<h2><%= link_to "Seating Chart", root_path, class: 'btn btn-large btn-primary' %></h2>
+<h2><%= link_to "All Attendances", attendances_path, class: 'btn btn-large btn-primary' %></h2>
+<h2><%= link_to "Student Index", all_users_path, class: 'btn btn-large btn-primary'%></h2>
+<% if current_user %>
+  <h2><%= link_to "Edit your profile", edit_user_path(current_user), class: 'btn btn-large btn-primary'%></h2>
+<% end %>
+<% if current_user.admin %>
+  <h3><%= link_to "Create New Assignment", new_assignment_path, class: 'btn btn-large btn-primary'%></h3>
+  <h3><%= link_to "Upload Assignment", upload_page_path, class: 'btn btn-large btn-primary'%></h3>
+<% end %>
+<h3><%= link_to "I'm Here!", new_attendance_path, class: 'btn btn-large btn-primary' %></h3>
+<h3><%= link_to "My Assignments", assignments_path, class: 'btn btn-large btn-primary'%></h3>

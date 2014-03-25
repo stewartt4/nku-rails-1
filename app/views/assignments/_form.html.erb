@@ -15,7 +15,7 @@
   <div class="span6 offset3">
     <div class="form">
 
-      <%= f.label :student_id %>:
+      <%= f.label :user_id %>:
       <%= collection_select(:assignment, :user_id, User.all, :id, :name) %>
     
       <%= f.label :assignment_name %>:

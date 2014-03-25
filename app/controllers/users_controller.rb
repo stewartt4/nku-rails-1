@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def upload
     UserUploader.new(params[:file])
-    redirect_to root_path
+    redirect_to assignments_path, notice: "#{:file.size} assignments were created!"
   end
 
   private
