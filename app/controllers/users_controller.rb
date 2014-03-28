@@ -31,7 +31,8 @@ class UsersController < ApplicationController
 
   def upload
     UserUploader.new(params[:file])
-    redirect_to assignments_path, notice: "#{:file.size} assignments were created!"
+    count = Assignment.where("created_at >= ?", Time.now - 2.seconds).count
+    redirect_to assignments_path, notice: "#{count} assignments were created!"
   end
 
   private
